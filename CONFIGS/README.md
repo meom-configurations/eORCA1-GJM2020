@@ -2,15 +2,14 @@
 ## Context
 
    * This code is based upon NEMO at realease 4.0.2 (https://forge.ipsl.jussieu.fr/nemo/svn/NEMO/releases/r4.0/r4.0.2) at rev 12591.
-  * It uses the DCM framework (github.com:meom-group/DCM.git at commit 0ef6ef22bfe )
+  * It uses the DCM from https://github.com/meom-group/DCM.git at commit 0ef6ef22bfe )
     * CPP keys are :
 
-    ```
-key_iomput
-key_mpp_mpi
-key_netcdf4
-key_si3
-key_drakkar
+    key_iomput
+    key_mpp_mpi
+    key_netcdf4
+    key_si3
+    key_drakkar
     ```
 
     * key_drakkar forces to use some DRAKKAR improvements, mainly regarding the management of the simulations (restart files, ouptut files etc...). 
