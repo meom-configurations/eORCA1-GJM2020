@@ -1,4 +1,4 @@
-# eORCA1-GJM2020 seried : numerical code
+# eORCA1-GJM2020 series : numerical code
 ## Context
 
    * This code is based upon NEMO at realease 4.0.2 (https://forge.ipsl.jussieu.fr/nemo/svn/NEMO/releases/r4.0/r4.0.2) at rev 12591.
