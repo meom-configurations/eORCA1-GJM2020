@@ -4,6 +4,7 @@
 eORCA1-GJM2020 experiments were performed with similar setting than eORCA12.L75-GJM2020, for comparison of the mixed layer physics. At low resolution, parametrizations for missing eddies effects are available in NEMO:
    * Eddy Induced Velocity ( eiv) (aka Gent Mc Williams 90 or GM90 for short).
    * Mixed Layer Eddies (mle) (aka Fox-Kemper 2016 or FK16 for short).
+
 In a series of experiments the impacts of eiv and mle are explored.
 
 ## Experiments
@@ -107,5 +108,6 @@ In a series of experiments the impacts of eiv and mle are explored.
 /
 
     ```
+
 ## Results:
 
