@@ -109,5 +109,47 @@ In a series of experiments the impacts of eiv and mle are explored.
 
   ```
 
+### **eORCA1-GJM2020d :** Same as base line but NO eiv,  mle
+  * **NO eiv** 
+  * **mle** 
+  * Run starts from GJM2020 restart files 01.01.2000
+  * Period: 2000-2019
+
+  ```
+!-----------------------------------------------------------------------
+&namtra_mle    !   mixed layer eddy parametrisation (Fox-Kemper)       (default: OFF)
+!-----------------------------------------------------------------------
+   ln_mle      = .true.   ! (T) use the Mixed Layer Eddy (MLE) parameterisation
+   rn_ce       = 0.06      ! magnitude of the MLE (typical value: 0.06 to 0.08)
+   nn_mle      = 1         ! MLE type: =0 standard Fox-Kemper ; =1 new formulation
+   rn_lf       = 5.e+3     ! typical scale of mixed layer front (meters)                      (case rn_mle=0)
+   rn_time     = 172800.   ! time scale for mixing momentum across the mixed layer (seconds)  (case rn_mle=0)
+   rn_lat      = 20.       ! reference latitude (degrees) of MLE coef.                        (case rn_mle=1)
+   nn_mld_uv   = 0         ! space interpolation of MLD at u- & v-pts (0=min,1=averaged,2=max)
+   nn_conv     = 0         ! =1 no MLE in case of convection ; =0 always MLE
+   rn_rho_c_mle = 0.01      ! delta rho criterion used to calculate MLD for FK
+/
+!-----------------------------------------------------------------------
+&namtra_eiv    !   eddy induced velocity param.                         (default: OFF)
+!-----------------------------------------------------------------------
+   ln_ldfeiv   = .false.   ! use eddy induced velocity parameterization
+      !
+      !                        !  Coefficients:
+      nn_aei_ijk_t    = 0           !  space/time variation of eddy coefficient:
+      !                             !   =-20 (=-30)    read in eddy_induced_velocity_2D.nc (..._3D.nc) file
+      !                             !   =  0           constant
+      !                             !   = 10 F(k)      =ldf_c1d
+      !                             !   = 20 F(i,j)    =ldf_c2d
+      !                             !   = 21 F(i,j,t)  =Treguier et al. JPO 1997 formulation
+      !                             !   = 30 F(i,j,k)  =ldf_c2d * ldf_c1d
+      !                        !  time invariant coefficients:  aei0 = 1/2  Ue*Le
+      rn_Ue        = 0.02           !  lateral diffusive velocity [m/s] (nn_aht_ijk_t= 0, 10, 20, 30)
+      rn_Le        = 200.e+3        !  lateral diffusive length   [m]   (nn_aht_ijk_t= 0, 10)
+      !
+      ln_ldfeiv_dia =.false.   ! diagnose eiv stream function and velocities
+/
+  ```
+
+
 ## Results:
 
