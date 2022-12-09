@@ -4,7 +4,8 @@
    * This code is based upon NEMO at realease 4.0.2 (https://forge.ipsl.jussieu.fr/nemo/svn/NEMO/releases/r4.0/r4.0.2) at rev 12591.
   * It uses the DCM from https://github.com/meom-group/DCM.git at commit 0ef6ef22bfe )
     * CPP keys are :
-
+    
+    ```
     key_iomput
     key_mpp_mpi
     key_netcdf4
@@ -28,5 +29,16 @@
   ```
      wget --no-check-certificate https://ige-meom-opendap.univ-grenoble-alpes.fr/thredds/fileServer/meomopendap/extract/eORCA1/eORCA1-I.tgz
   ```
-
-
+## Technical details for the implementation on Jean-Zay@idris
+  * NEMO : 240 cores on 6 computing nodes (40 cores each)
+    * 3 annual segments per submitted job (in about 1:30 elapsed). 
+  * XIOS : 8 cores on 1 computing node (depopulated )
+    * produce daily outout in `multiple_file` mode.
+    * recombination in global files performed together with chunking and compressing (netcdfF/HDF5, deflation level : 1 ).
+  * overall cost for these simulations : ( 81 years )
+    * nemo+xios : 11734 CPUH  --> 144.8 h/yrs
+    * recombine :   120 CPUH
+  * Size of the data set:
+    * GJM2020  : 1.9 Tb
+    * GJM2020b : 0.9 Tb
+    * GJM2020c : 0.9 Tb
