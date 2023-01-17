@@ -1,0 +1,9 @@
+eORCA1-GJM2020e :
+ * GM
+ * no FK
+ * no EVD
+ * no TKE
+ * GLS (k-epsilon)
+
+year 2000 with timestep 1350 s then 2001-2019 2700 seconds (nominal time step).
+
